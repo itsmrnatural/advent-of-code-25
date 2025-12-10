@@ -1,14 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int rotation(char direction, int distance) {
-    if (direction == 'L') {
-        return -(distance);
-    } else {
-        return distance;
-    }
-}
-
 void dial(int distance, int *code) {
     static int position = 50;  // At the beginning the dial is at 50
     int hasPassed = 0;
@@ -47,14 +39,11 @@ void begin(void) {
         perror("Error opening file");
         return;
     }
-    // fsetpos(fp, 0); // Set position to the beginning of the file
 
-    while (!feof(fp)) {
-        char direction;
-        int distance = 0;
-        fscanf(fp, "%c%d\n", &direction, &distance);
-
-        int rotate = rotation(direction, distance);
+    char direction;
+    int distance = 0;
+    while (fscanf(fp, "%c%d\n", &direction, &distance) == 2) {
+        int rotate = (direction == 'L' ? (-distance) : distance);
         dial(rotate, &code);
     }
 
