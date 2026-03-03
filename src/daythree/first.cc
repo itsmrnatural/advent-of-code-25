@@ -6,7 +6,7 @@
 
 using std::size_t;
 using std::string;
-void bridge(int &joltage, string bank) {
+void bridge(int &joltage, const string& bank) {
     size_t len = bank.length();
 
     char fst = bank[0];
