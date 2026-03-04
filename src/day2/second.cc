@@ -71,7 +71,6 @@ int main() {
         long lower, upper;
         char dash, comma;
         if (ss >> lower >> dash >> upper) {
-            // Logic: assuming validIds adds numbers to the vector
             validIds(ids, lower, upper);
         }
     }
