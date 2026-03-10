@@ -8,7 +8,7 @@
 
 using std::size_t;
 using std::string;
-void bridge(long &joltage, const string& bank) {
+void bridge(long &joltage, const string &bank) {
     size_t len = bank.length();
     std::vector<int> subseq;
     subseq.push_back(bank[0] - '0');
